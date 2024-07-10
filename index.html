@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title> Login Form PG</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
+  <link rel="stylesheet" href="login_style.css">
+
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PG</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" 
+rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+ crossorigin="anonymous">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" 
+integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" 
+crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <header>
+        <a href="#main"><h2>PAYING GUEST</h2></a>
+        <ul>
+            
+        </ul>
+    </header>
+    
+
+    
+    <div class="container-fluid" id="main">
+        <div class="login">
+          
+          <h3>Login</h3>
+          <form action="home.html" id="login">
+          <br><center>
+          <div class="form-group">
+            <input type="text" name="email" class="form-control" autocomplete="off" style="width: 70%;" placeholder="enter email" required>
+          </div>
+          <br>
+          <div class="form-group">
+            <input type="password" name="pass" id="pass" class="form-control" autocomplete="off" style="width: 70%;" placeholder="enter password" required>
+            <span id="err" style="color:red;font-weight: bold;;"></span>
+          </div>
+            <br>
+            <button class="btn btn-warning text-center" style="width: 34%;">login</button>
+            <button type="reset" class="btn btn-primary text-center" style="width: 34%;">Reset</button>
+            <br><br><small>Dont have account?<a href="Registration.html"> <b>register here</b></a></small>
+          </center>
+        </form>
+        </div>
+    </div>
+    
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <script>
+        $().ready(function () {
+            $("#login").validate({
+                rules: {
+                    email: {
+                        required: true,
+                        email: true
+                    }
+                },
+                messages: {
+                    email:{
+                        required: "<span style='color:red;font-weight:bold;'>Please enter a email id</span>",
+                        email: "<span style='color:red;font-weight:bold;'>Please enter a valid email id</span>"
+                    }
+                }
+            });
+        });
+        $(document).ready(function(){
+           $('#pass').keyup(function(){
+                if (!$('#pass').val().match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/))
+                    $('#err').text("Password should contain atleast 8 character with one lowercase,uppercase,digit and special character");
+                else
+                    $('#err').text(""); 
+           });
+        });
+
+        </script>
+    </body>
+    </html>
